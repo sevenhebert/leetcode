@@ -1,4 +1,4 @@
-class eightytwo {
+class eighttwo {
 
   object Solution {
     def deleteDuplicates(head: ListNode): ListNode = {
