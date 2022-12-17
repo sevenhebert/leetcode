@@ -1,21 +1,14 @@
 class oneonezero {
 
   object Solution {
-    def depth(node: TreeNode): Int =
-      if (node == null) 0
-      else 1 + Math.max(depth(node.left), depth(node.right))
-
-    def isBalanced(root: TreeNode): Boolean = {
+    def isBalanced(root: TreeNode): Boolean =
       if (root == null) true
-      else {
-        val leftDepth = depth(root.left)
-        val rightDepth = depth(root.right)
+      else if (math.abs(depth(root.left) - depth(root.right)) <= 1) isBalanced(root.left) & isBalanced(root.right)
+      else false
 
-        if (leftDepth == rightDepth || leftDepth + 1 == rightDepth || leftDepth - 1 == rightDepth) isBalanced(root.left) && isBalanced(root.right)
-        else false
-      }
-
-    }
+    private def depth(node: TreeNode): Int =
+      if (node == null) 0
+      else 1 + math.max(depth(node.left), depth(node.right))
 
   }
 
